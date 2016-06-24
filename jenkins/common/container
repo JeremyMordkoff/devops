@@ -59,6 +59,7 @@ wait_container_up() {
 			return
 		fi
 		INFO "waiting for container $1 to start"
+		DEBUG "expected 'load average' in $output"
 		sleep 1
 	done
 	FATAL "container $1 did not start"
