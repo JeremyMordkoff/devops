@@ -20,7 +20,6 @@
 
 HERE=$(realpath $(dirname $0))
 OSM_JENKINS=$(dirname $HERE)
-
 . $OSM_JENKINS/common/all_funcs
 
 [ $# -eq 1 ] || FATAL "arg is MDG name"

@@ -17,4 +17,24 @@
 #
 # 24 June 2016 -- Jeremy Mordkoff -- Genesis
 
-echo this is $0 running in $(hostname) at $(date)
+HERE=$(realpath $(dirname $0))
+OSM_JENKINS=$(dirname $HERE)
+. $OSM_JENKINS/common/all_funcs
+
+
+if [ -d riftware ]; then
+	INFO "reusing existing workspace"
+	cd riftware
+	git pull 
+else
+	INFO "cloning MDG riftware"
+	git clone $OSM_GIT_URL/riftware
+	cd riftware
+	INFO "install pre-requisites"
+	bash ./scripts/vm_image/mkvmimg --container --modes build
+fi
+
+INFO "done"
+
+
+

@@ -33,19 +33,19 @@ print_stack() {
 
 
 FATAL() { 
-	echo "### ${FUNCNAME[1]}: FATAL error: $*"
+	echo "### $(date) ${FUNCNAME[1]}: FATAL error: $*"
 	print_stack
 	exit 1
 }
 	
 WARNING() { 
-	echo "### ${FUNCNAME[1]}: WARNING error: $*"
+	echo "### $(date) ${FUNCNAME[1]}: WARNING error: $*"
 }
 
 INFO() { 
-	echo "##  ${FUNCNAME[1]}: $*"
+	echo "##  $(date) ${FUNCNAME[1]}: $*"
 }
 
 DEBUG() { 
-	echo "#   ${FUNCNAME[1]}: $*"
+	echo "#   $(date) ${FUNCNAME[1]}: $*"
 }
