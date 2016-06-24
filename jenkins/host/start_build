@@ -30,8 +30,10 @@ OSM_load_config
 if ! container_exists $OSM_BUILD_CONTAINER; then
 	create_container $OSM_BASE_IMAGE $OSM_BUILD_CONTAINER
 	wait_container_up $OSM_BUILD_CONTAINER
+	container_exec $OSM_BUILD_CONTAINER git clone ${OSM_GIT_URL}/devops
+else
+	container_exec $OSM_BUILD_CONTAINER git -C devops pull
 fi
 
 
-container_exec $OSM_BUILD_CONTAINER git clone ${OSM_GIT_URL}/devops
 container_exec $OSM_BUILD_CONTAINER ./devops/jenkins/$OSM_MDG/start_build
