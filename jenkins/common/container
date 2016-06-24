@@ -50,10 +50,10 @@ container_exec() {
 wait_container_up() {
 	[ $# -eq 1 ] || FATAL "arg is container name got $# args - $*"
 	ct=0
-	RE="load average"
+	RE="1 received"
 	while [ $ct -lt 60 ]; do
 		let ct=ct+1
-		output=$(container_exec "$1" uptime)
+		output=$(container_exec "$1" ping -c 1 google.com)
 		if [[ $output =~ $RE ]]; then	
 			DEBUG "$1 is up"
 			return
