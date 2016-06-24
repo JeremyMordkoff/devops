@@ -30,6 +30,12 @@ OSM_load_config
 if ! container_exists $OSM_BUILD_CONTAINER; then
 	create_container $OSM_BASE_IMAGE $OSM_BUILD_CONTAINER
 	wait_container_up $OSM_BUILD_CONTAINER
+	RE="fedora|fc[0-9]"
+	if [[ $OSM_BASE_IMAGE =~ $RE ]]; then
+		container_exec $OSM_BUILD_CONTAINER yum -y install git
+	else
+		container_exec $OSM_BUILD_CONTAINER apt install git
+	fi
 	container_exec $OSM_BUILD_CONTAINER git clone ${OSM_GIT_URL}/devops
 else
 	container_exec $OSM_BUILD_CONTAINER git -C devops pull
