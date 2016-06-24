@@ -32,6 +32,7 @@ OSM_load_config_file() {
 	[ $# -eq 1 ] || FATAL "arg is filename"
 	if [ -f "$1" ]; then
 		. "$1"
+		INFO "config file $1 loaded"
 	else
 		WARNING "$1 not found"
 	fi
