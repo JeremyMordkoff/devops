@@ -37,7 +37,7 @@ create_container() {
 	fi
 	INFO "creating container $2 using image $1"
 	DEBUG "lxc launch $1 $2"
-	lxc launch "$1" "$2"
+	sudo lxc launch "$1" "$2"
 }
 
 container_exec() { 
