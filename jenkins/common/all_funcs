@@ -23,5 +23,8 @@ if [ -z "$OSM_JENKINS" ]; then
 fi
 
 . ${OSM_JENKINS}/common/logging
+INFO "logging sourced"
 . ${OSM_JENKINS}/common/config
+INFO "config sourced"
 . ${OSM_JENKINS}/common/container
+INFO "container sourced"
