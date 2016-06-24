@@ -50,7 +50,7 @@ container_exec() {
 wait_container_up() {
 	[ $# -eq 1 ] || FATAL "arg is container name got $# args - $*"
 	ct=0
-	RE="laod average"
+	RE="load average"
 	while [ $ct -lt 60 ]; do
 		let ct=ct+1
 		output=$(container_exec "$1" uptime)
@@ -59,7 +59,7 @@ wait_container_up() {
 			return
 		fi
 		INFO "waiting for container $1 to start"
-		DEBUG "expected 'load average' in $output"
+		DEBUG "expected '$RE' in $output"
 		sleep 1
 	done
 	FATAL "container $1 did not start"
