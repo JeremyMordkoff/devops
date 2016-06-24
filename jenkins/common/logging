@@ -21,33 +21,33 @@
 print_stack() {
    local i
    local stack_size=${#FUNCNAME[1]}
-   echo  "BACKTRACE:"
+   echo  "BACKTRACE:" >&2
    for (( i=1; i<$stack_size ; i++ )); do
       local func="${FUNCNAME[$i]}"
       [ x$func = x ] && func=MAIN
       local linen="${BASH_LINENO[(( i - 1 ))]}"
       local src="${BASH_SOURCE[$i]}"
       [ x"$src" = x ] && src=non_file_source
-      echo "### $func $src $linen"
+      echo "### $func $src $linen" >&2
    done
-   echo "-------"
+   echo "-------" >&2
 }
 
 
 FATAL() { 
-	echo "### $(date) ${FUNCNAME[1]}: FATAL error: $*"
+	echo "### $(date) ${FUNCNAME[1]}: FATAL error: $*" >&2
 	print_stack
 	exit 1
 }
 	
 WARNING() { 
-	echo "### $(date) ${FUNCNAME[1]}: WARNING error: $*"
+	echo "### $(date) ${FUNCNAME[1]}: WARNING error: $*" >&2
 }
 
 INFO() { 
-	echo "##  $(date) ${FUNCNAME[1]}: $*"
+	echo "##  $(date) ${FUNCNAME[1]}: $*" >&2
 }
 
 DEBUG() { 
-	echo "#   $(date) ${FUNCNAME[1]}: $*"
+	echo "#   $(date) ${FUNCNAME[1]}: $*" >&2
 }
