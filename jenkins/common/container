@@ -48,7 +48,7 @@ container_exec() {
 }
 
 wait_container_up() {
-	[ $# -ne 1 ] || FATAL "arg is container name"
+	[ $# -ne 1 ] || FATAL "arg is container name got $# args - $*"
 	ct=0
 	RE="laod average"
 	while [ $ct -lt 10 ]; do

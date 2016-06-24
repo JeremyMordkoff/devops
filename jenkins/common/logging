@@ -21,6 +21,7 @@
 print_stack() {
    local i
    local stack_size=${#FUNCNAME[1]}
+   INFO "BACKTRACE:"
    for (( i=1; i<$stack_size ; i++ )); do
       local func="${FUNCNAME[$i]}"
       [ x$func = x ] && func=MAIN
@@ -29,6 +30,7 @@ print_stack() {
       [ x"$src" = x ] && src=non_file_source
       echo "### $func $src $linen"
    done
+   INFO "-------"
 }
 
 
