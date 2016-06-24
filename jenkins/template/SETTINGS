@@ -1,0 +1,10 @@
+# this variable holds the name of the container image needed to build or run this product
+export OSM_BASE_IMAGE=fc20
+#
+# this variable holds the name of the container to be used to build a package
+# if this container already exists, the build process can skip the container build
+export OSM_BUILD_CONTAINER=rift-build
+#
+# this variable holds the name of the container to be used to run a package
+# if this container already exists, the run processes can skip the container build
+export OSM_RUNTIME_CONTAINER=rift-runtime
