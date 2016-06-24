@@ -20,6 +20,8 @@
 HERE=$(realpath $(dirname $0))
 OSM_JENKINS=$(dirname $HERE)
 . $OSM_JENKINS/common/all_funcs
+export OSM_MDG=riftware
+OSM_load_config
 
 
 if [ -d riftware ]; then
