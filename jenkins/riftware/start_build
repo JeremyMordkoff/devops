@@ -27,7 +27,7 @@ if [ -d riftware ]; then
 	cd riftware
 	git pull 
 else
-	INFO "cloning MDG riftware"
+	INFO "cloning MDG riftware from $OSM_GIT_URL/riftware"
 	git clone $OSM_GIT_URL/riftware
 	cd riftware
 	INFO "install pre-requisites"
