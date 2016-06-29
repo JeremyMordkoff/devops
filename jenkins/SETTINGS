@@ -18,4 +18,5 @@
 # 24 June 2016 -- Jeremy Mordkoff -- Genesis
 #
 # base url for all repositories
-OSM_GIT_URL=https://osm.etsi.org/gerrit/osm
+#OSM_GIT_URL=https://osm.etsi.org/gerrit/osm
+OSM_GIT_URL=https://github.com/JeremyMordkoff
